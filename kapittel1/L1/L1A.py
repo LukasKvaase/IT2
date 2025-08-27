@@ -9,8 +9,6 @@ print("Lukas")
 # /Print
 
 
-
-
 # Variabler
 
 # oppgave 2
