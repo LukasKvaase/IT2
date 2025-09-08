@@ -1,0 +1,119 @@
+import random
+
+def oppgave1():
+    print("\nOppgave 1: Forskjell på for- og while-løkke")
+    print("- For-løkke: brukes når vi vet hvor mange ganger vi skal repetere.")
+    print("  Eksempel: tall fra 1 til 10:")
+    for i in range(1, 11):
+        print(i, end=" ")
+    print("\n- While-løkke: brukes når vi ikke vet hvor mange ganger vi må repetere, men stopper på en betingelse.")
+    print("  Eksempel: trill terning til sekser:")
+    kast = 0
+    while kast != 6:
+        kast = random.randint(1, 6)
+        print(kast, end=" ")
+    print("\n")
+
+
+def oppgave2():
+    print("\nOppgave 2")
+    print("a) Partall fra -100 til 100:")
+    for i in range(-100, 101, 2):
+        print(i, end=" ")
+    print("\n")
+
+    print("b) Oddetall fra 73 til -73 (synkende):")
+    for i in range(73, -74, -2):
+        print(i, end=" ")
+    print("\n")
+
+    print("c) Trill terning til sekser:")
+    kast = 0
+    while kast != 6:
+        kast = random.randint(1, 6)
+        print(kast, end=" ")
+    print("\n")
+
+    print("d) Skriv ut tegn i tekst:")
+    tekst = "Hei på deg"
+    for tegn in tekst:
+        print(tegn)
+    print()
+    
+    
+
+
+def oppgave3():
+    print("\nOppgave 3")
+    # a)
+    n = int(input("Skriv inn et tall (a): "))
+    summen = 0
+    for i in range(1, n+1):
+        summen += i
+    gjennomsnitt = summen / n
+    print("Summen:", summen, "Gjennomsnitt:", gjennomsnitt)
+
+    # b)
+    tall = []
+    while True:
+        x = int(input("Skriv inn et tall (b): "))
+        tall.append(x)
+        if x > 10:
+            break
+    print("Største:", max(tall))
+    print("Minste:", min(tall))
+    print("Summen:", sum(tall))
+    print("Gjennomsnitt:", sum(tall) / len(tall))
+
+    # c)
+    n = int(input("Hvor mange kast med 1 terning? "))
+    kast = []
+    for i in range(n):
+        x = random.randint(1, 6)
+        kast.append(x)
+        print(x, end=" ")
+    print("\nSummen:", sum(kast))
+    print("Gjennomsnitt:", sum(kast) / n)
+
+    # d)
+    n = int(input("Hvor mange kast med 2 terninger? "))
+    kast = []
+    for i in range(n):
+        x = random.randint(1, 6) + random.randint(1, 6)
+        kast.append(x)
+        print(x, end=" ")
+    print("\nSummen:", sum(kast))
+    print("Gjennomsnitt:", sum(kast) / n)
+
+
+def oppgave4():
+    print("\nOppgave 4: Tegn kvadrat med #")
+    n = int(input("Sidelengde: "))
+    for i in range(n):
+        print("#" * n)
+    print()
+
+
+# Hovedprogram
+while True:
+    print("\n--- Meny ---")
+    print("1: Oppgave 1")
+    print("2: Oppgave 2")
+    print("3: Oppgave 3")
+    print("4: Oppgave 4")
+    print("0: Avslutt")
+
+    valg = input("Velg oppgave: ")
+    if valg == "1":
+        oppgave1()
+    elif valg == "2":
+        oppgave2()
+    elif valg == "3":
+        oppgave3()
+    elif valg == "4":
+        oppgave4()
+    elif valg == "0":
+        print("Avslutter programmet...")
+        break
+    else:
+        print("Ugyldig valg, prøv igjen.")
