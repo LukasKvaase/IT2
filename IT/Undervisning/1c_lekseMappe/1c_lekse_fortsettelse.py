@@ -1,6 +1,5 @@
 from random import randint
 
-
 def oppgave5():
     #variabler
     alfabet = "abcdefghijklmnopqrstuvwxyzæøå"
@@ -25,7 +24,7 @@ def oppgave5():
     #             charCount+=1
     #     stats.append([alfabetChar, charCount]) # legger til bokstav og antall inn i liste som legges i liste
         
-        
+
     for alfabetChar in alfabet: # itererer gjennnom hele alfabetet
         stats.append([alfabetChar, text.count(alfabetChar)]) # legger til bokstav og antall ved hjelp av innebygd funksjon count
             
@@ -42,29 +41,31 @@ def oppgave6():
     while running: # while loop
         number = randint(1,10) # generer et tilfeldig tall mellom 1 - 10
         guess = None
+        maxCount = 4
+        count = 0
         while number != guess: # while som kjører så lenge gjettet tall ikke er likt som tall
             guess = input("\ngjett et tall fra 1 til 10: ")
             if guess == "e": # brexit funksjon
                 running = False
                 break
-            else:
-                guess = int(guess) # typecaster int
-            if guess < number:
-                print("\nDu gjettet for lavt :(\n")
+            if guess == number:
+                print(f"\nRiktig! \n\nLa oss spille igjen, eller skriv (e) for exit.  count: {count}\n") 
+            elif count > maxCount:
+                print(f"\n Du gjetter for mange ganger!  count: {count}\n")
+                break
+            elif guess < number:
+                print(f"\nDu gjettet for lavt :( count: {count}\n")
             elif guess > number:
-                print("\nDu gjettet for høyt :(\n")
+                print(f"\nDu gjettet for høyt  count: {count}:(\n")
             else:
-                pass 
-        print("\nRiktig! \n\nLa oss spille igjen, eller skriv (e) for exit.\n")
-
-
-
+                print("\nUgyldig svar.\n") 
+            count+=1
+    
+        
 def oppgave7():
-    n = int(input("\nn: "))
-    last = 0
-    current = 1
+    n, last, current = int(input("\nn: ")), 0, 1
     for i in range(n):
-        print(current)
+        print(f"{i+1:<6}{current:>8}")
         current += last
         last = current-last
         
