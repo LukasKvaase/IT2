@@ -5,15 +5,21 @@ def translateKey(i, key):
     z = key["z"]
     return (x*i**3)+(y*i**2)+(z*i)+(x*y*z)
 
-def safe_chr_ascii(tallkode):
-    """Safe chr. Not outside range of normal Ascii"""
-    return chr(32 + (tallkode % 400))
+ALLOWED_CHARS = (
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"  # Uppercase
+    "abcdefghijklmnopqrstuvwxyz"  # Lowercase
+    "0123456789"                  # Digits
+    ' .,!?;:-_()[]{}"'            # Common punctuation
+    "æøåÆØÅ"                      # Norwegian letters
+)
 
+def safe_chr_ascii(tallkode):
+    """Return a safe printable character including Norwegian letters."""
+    return ALLOWED_CHARS[tallkode % len(ALLOWED_CHARS)]
 
 def safe_ord_ascii(char):
-    """Safe ord. Not outside range of normal Ascii"""
-    return (ord(char) - 32) % 400
-
+    """Return the index of a safe printable character including Norwegian letters."""
+    return ALLOWED_CHARS.index(char)
 
 def encode(tekst, key):
     """encodes text with a given key(save for use for decoding)"""
