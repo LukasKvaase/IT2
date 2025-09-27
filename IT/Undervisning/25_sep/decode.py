@@ -13,11 +13,7 @@ x, y, z = map(int, matches)
 
 print(f"x: {x}\ny: {y}\nz: {z}")
 
-solveKey = {
-    "x": x,
-    "y": y,
-    "z": z
-}
+solveKey = {"x": x,"y": y,"z": z}
 
 
 decodedTextRight = cd.decode(encodedText, solveKey)
